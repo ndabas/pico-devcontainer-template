@@ -1,0 +1,23 @@
+{
+    "registries": [
+        {
+            "name": "microsoft",
+            "location": "https://aka.ms/vcpkg-ce-default",
+            "kind": "artifact"
+        },
+        {
+            "name": "pico",
+            "location": "https://github.com/ndabas/pico-vcpkg-ce-registry/archive/refs/heads/master.zip",
+            "kind": "artifact"
+        }
+    ],
+    "requires": {
+        "microsoft:compilers/arm-none-eabi-gcc": "10.3.1-2021.10",
+        "microsoft:tools/kitware/cmake": "3.25.2",
+        "pico:tools/ninja-build/ninja": "1.11.1",
+        "pico:tools/python/python": "3.9.13",
+        "pico:tools/raspberrypi/openocd": "0.12.0",
+        "pico:tools/raspberrypi/pico-sdk-tools": "1.5.1",
+        "pico:tools/raspberrypi/pico-sdk": "1.5.1"
+    }
+}
