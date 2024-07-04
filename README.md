@@ -1,31 +1,21 @@
-# Sample Pico SDK project for toolchain installation with vcpkg
+# Development Container for Pico SDK
 
-This project contains configuration to allow fully automated toolchain installation with [vcpkg artifacts](https://devblogs.microsoft.com/cppblog/vcpkg-artifacts/) (also known as vcpkg-ce in some documentation.)
+This project is a template that you can use to spin up your own development environment with the [Pico SDK](https://github.com/raspberrypi/pico-sdk) pre-configured, with no need to install anything locally. You will need a GitHub account to use the Codespaces feature.
 
-While vcpkg supports installation on Linux, macOS, and Windows, the current set of packages are only published for Windows.
+Currently, you can compile your code and download the resulting elf/uf2 binary files, just as you would with a locally-installed toolchain.
 
-To try it out:
-1. Download or clone this project to your computer.
-1. Open the folder in Visual Studio Code.
-1. Visual Studio Code might be very excited to see the project and start throwing all sorts of errors and messages. Ignore everything.
-1. Except for the message that asks you if you would like to install the workspace recommended extensions. Answer yes to that one and wait until all of the extensions are installed.
-1. When all the extensions are installed, you will see a "vcpkg" button on the status bar with a spinner indicating progress. Click it to see the log.
-1. When it is done, you will see a message like: "Activated environment at ...".
-1. You can now click the CMake button on the Visual Studio Code navigation bar to open the CMake project outline.
-1. Click the three dots button on top of the outline, and choose to Clean Reconfigure All Projects.
-1. When done, you can click the small Build All Projects button to start the actual build.
+Debugging is currently not supported but can be made to work with some SSH reverse tunneling, a debug probe, and running OpenOCD on the host where your Pico is connected.
 
-## Configuration
-You can look through, and copy to your own projects, the configuration files that make this work:
-- [vcpkg-configuration.json](vcpkg-configuration.json)
-- [CMakePresets.json](CMakePresets.json)
-- Several files in [.vscode](.vscode)
+## Setting up the development container
 
-## What it does
-vcpkg artifacts downloads and extracts the toolchain to the location specified in [.vscode/settings.json](.vscode/settings.json), on this line:
-```
-"vcpkg.storageLocation": "C:/vcpkg"
-```
-Change this to modify where the downloaded files are stored. You can simply delete this directory to "uninstall" the toolchain. Note that this must be a relatively short path, as GCC and the other tools might have trouble locating certain files if the path lengths become too long.
+### GitHub Codespaces
 
-vcpkg artifacts will also set up the correct PATH and other environment variables within Visual Studio Code, without making any changes to the global environment or registry.
+[Click this link to create a new GitHub Codespace with this template](https://codespaces.new/ndabas/pico-devcontainer-template).
+
+For more info, check out the [documentation](https://docs.github.com/en/codespaces/overview).
+
+### VS Code Dev Containers
+
+If you already have VS Code and Docker installed, you can [click this link to get started](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/ndabas/pico-devcontainer-template). This will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+
+More info in the [documentation](https://code.visualstudio.com/docs/devcontainers/containers).
